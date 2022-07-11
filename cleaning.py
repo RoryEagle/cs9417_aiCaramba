@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 
 def clean_data(train_file):
     #load the train.csv file into a dataframe
-    df = pd.read_csv('./petfinder-adoption-prediction/train/train.csv')
+    df = pd.read_csv(train_file)
     #drop text/object features from train
     df = df.drop(['Name', 'RescuerID', 'Description','PetID'], axis = 1)
 
