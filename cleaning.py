@@ -1,6 +1,8 @@
 import pandas as pd
+import numpy as np
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
+from imblearn.over_sampling import SMOTE
 
 def clean_data(train_file):
     #load the train.csv file into a dataframe
@@ -71,3 +73,13 @@ def clean_data(train_file):
     Y_test = test['AdoptionSpeed'].values
     
     return X_train, Y_train, X_test, Y_test
+
+
+
+def SMOTE_resample(X_train, y_train, X_test, y_test):
+    X = np.vstack((X_train, X_test))
+    y = np.vstack((y_train.reshape(-1,1), y_test.reshape(-1,1)))
+    sm = SMOTE()
+    X_res, y_res = sm.fit_resample(X, y)
+    X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size=0.3)
+    return X_train, y_train, X_test, y_test
