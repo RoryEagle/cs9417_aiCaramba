@@ -1,24 +1,25 @@
 Started a simple linear regressor
 
-# NOTES: I tried rounding the guesses into discrete quantities, and using different regression models. Best R^2 I could get was 0.11 with gradient Boosted regression
-# Need to remove collinearity and clean data more
-# Need to try other models and maybe look at images
-# Try to get an R^2 of at least 0.3 if you can. 
-# Look into this https://www.kaggle.com/competitions/petfinder-adoption-prediction/discussion/87733
-
-I split up the models into classifiers and regressors and ran them
-
-The best performing linear model was the ensemble gradientBoosted Regressor, so I took that to a separate file
+Early notes
+I tried rounding the guesses into discrete quantities, and using different regression models. Best R^2 I could get was 0.11 with gradient Boosted regression
+Need to remove collinearity and clean data more
+Need to try other models and maybe look at images
+Try to get an R^2 of at least 0.3 if you can. 
+Look into this https://www.kaggle.com/competitions/petfinder-adoption-prediction/discussion/87733
 
 
 
 
 
+First I ran different classification / regression models
+I found classification models to be overall much better, however I wasn't sure if I should focus on them or not so I tried to improve the score of my best linear regression
+I picked the best regressor model I could find and started to test it with different collinearity adjusted datasets and depths and learning rates
+I also plotted how it improved compared to the number of estimators used, I am going to next use the best results from all my above testing to provide an optimal algorithm
 
 
+I expect that getting an accuracy of 0.45 or so is as good as we are going to get without incorporating photos and metadata
 
-
-First I tried different classification / regression models
-I found classification models to be overall much better
-
-Secondly I picked the best regressor model I could find and started to test it with different depths and learning rates
+NOTES FOR TEAM MEETINGS
+- Am I meant to be doing certain classifiers too
+- How much can I borrow from other peoples gits
+- Lets start to talk about how we want to weave this together into a continous story
