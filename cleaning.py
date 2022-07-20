@@ -76,10 +76,7 @@ def clean_data(train_file):
 
 
 
-def SMOTE_resample(X_train, y_train, X_test, y_test):
-    X = np.vstack((X_train, X_test))
-    y = np.vstack((y_train.reshape(-1,1), y_test.reshape(-1,1)))
+def SMOTE_resample(X_train, y_train):
     sm = SMOTE()
-    X_res, y_res = sm.fit_resample(X, y)
-    X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size=0.3)
-    return X_train, y_train, X_test, y_test
+    X_res, y_res = sm.fit_resample(X_train, y_train)
+    return X_res, y_res
